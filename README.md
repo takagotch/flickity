@@ -66,18 +66,92 @@ $('.button-group').on( 'click', '.button', function(){
   $carousel.flickity( 'select', index );
 });
 
-$().on();
+$('button-group').on('click', '.button', function(){
+  var index = $().index();
+  $carousel.flickity( 'select', index, false, true );
+});
 
-$carousel.flickity()
-flkty.previous()
+$carousel.flickity( 'previous', isWrapped, isInstant )
+flikty.previous( isWrapped, isInstant )
 
-$().on();
-$().on();
+$('.button--previous').on('click', function(){
+  $carousel.flickity('previous');
+});
+$('.button--previsou-wrapped').on('click', function(){
+  $carousel.flickity('previous', true );
+});
+  
+$carousel.flickity('next', isWapped, isInstant )
+flkty.next( isWrapped, isInstant )
+
+$('.button--next').on('click', function(){
+  $carousel.flickity('next');
+});
+$('.button--next-wrapped').on('click', function(){
+  $carousel.flickity('next', true );
+});
+
+$carousel.flickity( 'selectCell', value, isWrapped, isInstant )
+flkty.selectCell( value, isWrapped, isInstant )
+
+$('.button-group').on('click', '.button', function(){
+  var index = $(this).index();
+  $carousel.flickity( 'selectCell', index);
+});
+
+$carousel.flickity('selectCell', '.cell2');
+
+$carousel.flickity('resize')
+flkty.resize()
+
+$('.button--resize').on('click', function(){
+  $carousel.toggleClass('is-expanded')
+    .flickity('resize');
+});
+
+$('.button').on('click', function(){
+  $carousel.show()
+     .flickity('resize');
+});
+
+$carousel.flickity('respoition')
+flikty.reposition()
+
+$carousel.on('staticClick', function( event, pointer, cellElement, cellindex){
+  if( !cellElement ){
+    return;
+  }
+  $( cellElement ).toggleClass('is-expended');
+  $carousel.flickity('reposition');
+});
+
+$carousel.flickity( 'append', elements )
+flkty.prepend( elements )
+$('.button').on('click', function(){
+  var $cellElems = $('<div class="carousel-cell">...</div>');
+  $carousel.flickity( 'prepend', $cellElems );
+});
+
+$carousel.flickity( 'append', elements )
+flkty.append( elements )
+
+$('.button').on('click', function(){
+  var $cellElems = $('<div class="carousel-cell"></div>');
+  $carousel.flickity( 'append', $cellElems );
+});
+
+$carousel.flickity( 'insert', elements, index )
+flkty.insert( elements, index )
+$('.button').on('click', function(){
+  var $cellElems = $('<div class="carousel-cell"></div>');
+  $carousel.flickity('insert', $cellElems, 1 );
+});
+
 
 /*
 https://flickity.metafizzy.co/api.html
 */
-
+Flickity.setJQuery( $ )
 var $ = require('jquery');
 var jQueryBridget = require('jquery-bridget');
 var Flickity = require('flickity');
@@ -99,3 +173,12 @@ flkty.cells.length
 flkty.slides
 flkty.slides.length
 ```
+
+```css
+.carousel { width: 50%; }
+.carousel.is-expanded { width: 100%; }
+.carousel.is-expanded .carousel-cell{
+  height: 320px;
+}
+```
+
