@@ -78,13 +78,24 @@ $().on();
 https://flickity.metafizzy.co/api.html
 */
 
+var $ = require('jquery');
+var jQueryBridget = require('jquery-bridget');
+var Flickity = require('flickity');
+Flickity.setJQuery( $ );
+jQueryBridget( 'flickity', Flickity, $ );
+var $carousel = $('.carousel').flickity({...});
 
+var $carousel = $('.carousel').flickity();
+var flkty = $carousel.data('flickity');
+console.log( flkty.selectedIndex, flkty.selectedElement );
 
+flk.selectedIndex
+flkty.selectedElement
+flkty.selectedElements
 
+slkty.cells
+flkty.cells.length
 
-
-
-
-
-
+flkty.slides
+flkty.slides.length
 ```
