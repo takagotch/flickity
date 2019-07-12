@@ -2,7 +2,7 @@
 ---
 https://github.com/metafizzy/flickity
 
-```
+```html
 <script rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
 <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
 
@@ -13,7 +13,7 @@ https://github.com/metafizzy/flickity
 </div>
 ```
 
-```
+```sh
 bower install flickity --save
 npm install flickity --save
 ```
@@ -182,5 +182,29 @@ flkty.slides.length
 }
 ```
 
-```
+```js
+$('.main-carousel').flickity({
+  cellAlign: 'left',
+  contain: true
+});
+
+var elem = document.querySelector('.main-carousel');
+var flkty = new Flicktiy( elem, {
+  cellAlign: 'left',
+  contain: true
+});
+
+var flkty = new Flickity( '.main-carousel', {
+  // option
+});
+
+$carousel.flicktity( 'prepend', elements )
+
+flikty.prepend( elements )
+
+$('.button').on( 'click', function() {
+  var $vellElems = $('<div class="carousel-cell">...</div>');
+  $carousel.flickity( 'prepend', $cellElems );
+});
+
 ```
